@@ -2,7 +2,7 @@
 
 # CRUD參考： https://wenhaoyi.notion.site/MySQL-CRUD-7730c33181594311a4a2e6d156fa8cfb
 
-include_once("con.php");
+include_once("_con.php");
 
 $sql="SELECT `artid`, `arttitle`, `artdate`, `artclick` FROM `article`";
 $query = mysqli_query($_con,$sql);
@@ -18,7 +18,7 @@ $query = mysqli_query($_con,$sql);
 </head>
 <body>
     <h1>文章列表</h1>
-    <caption><?php if(isset($_GET['success'])&&$_GET['success']==1){echo "新增成功!!";}  if(isset($_GET['success'])&&$_GET['success']==2){echo "刪除成功!!";} ?></caption>
+    <caption><?php if(isset($_GET['success'])&&$_GET['success']==1){echo "新增成功!!";}  if(isset($_GET['success'])&&$_GET['success']==2){echo "刪除成功!!";} if(isset($_GET['success'])&&$_GET['success']==3){echo "編輯成功!!";} ?></caption>
     <hr>
     <table>
         <thead>
@@ -35,7 +35,7 @@ $query = mysqli_query($_con,$sql);
                 <td><?php echo $row['artdate']; ?></td>
                 <td><a href="article.php?id=<?php echo $row['artid']; ?>"><?php echo $row['arttitle']; ?></a></td>
                 <td><?php echo $row['artclick']; ?></td>
-                <td><a href="process.php?action=DELETE&artid=<?php echo $row['artid']; ?>">刪除</a></td>
+                <td><a href="edit.php?id=<?php echo $row['artid']; ?>">編輯</a> | <a href="process.php?action=DELETE&artid=<?php echo $row['artid']; ?>">刪除</a></td>
             </tr>
             <?php } ?>
         </tbody>

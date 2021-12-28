@@ -1,11 +1,13 @@
 <?php 
 
-include_once("con.php");
+include_once("_con.php");
 
+//查詢擁有此ID的文章
 $sql="SELECT * FROM `article` WHERE `artid` = '".$_GET['id']."'";
 $query = mysqli_query($_con,$sql);
 $row=mysqli_fetch_assoc($query);
 
+//新增點擊數
 $click_sql="UPDATE `article` SET `artclick` = '".($row['artclick']+1)."' WHERE `article`.`artid` = '".$_GET['id']."';";
 $click_query = mysqli_query($_con,$click_sql);
 
