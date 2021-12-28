@@ -1,5 +1,7 @@
 <?php 
 
+
+session_start();
 include_once("_con.php");
 
 $sql="SELECT * FROM `article` WHERE `artid` = '".$_GET['id']."'";
@@ -28,6 +30,7 @@ $row=mysqli_fetch_assoc($query);
         <label for="artcontent">文章內容</label>
         <textarea name="artcontent" id="artcontent" cols="30" rows="10"><?php echo $row['artcontent']; ?></textarea>
         <br>
+        <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
         <input type="submit" name="action" value="儲存編輯">
     </form>
     <a href="index.php">回列表</a>

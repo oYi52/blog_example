@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- 主機： localhost
--- 產生時間： 2021 年 12 月 14 日 08:12
+-- 產生時間： 2021 年 12 月 28 日 07:53
 -- 伺服器版本： 10.4.11-MariaDB
 -- PHP 版本： 7.2.29
 
@@ -41,8 +41,29 @@ CREATE TABLE `article` (
 --
 
 INSERT INTO `article` (`artid`, `arttitle`, `artcontent`, `artdate`, `artposter`, `artclick`) VALUES
-(1, '測試標題', '內容內容內容內容內容內容內容內容內容內容內容內容', '2021-12-14', '測試者', 41),
-(2, '測試標題2', '內容內容內容內容內容內容內容內容內容內容內容內容', '2021-12-14', '測試者', 11);
+(1, '測試標題', '內容內容內容內容內容內容內容內容內容內容內容內容', '2021-12-14', '測試者', 10),
+(2, '1228', '新的內容新的內容新的內容新的內容新的內容新的內容新的內容新的內容新的內容新的內容新的內容', '2021-12-14', '測試者', 1),
+(5, '測試標題2', '文章內容144555', '2021-12-21', '管理者', 0);
+
+-- --------------------------------------------------------
+
+--
+-- 資料表結構 `user`
+--
+
+CREATE TABLE `user` (
+  `uid` varchar(50) NOT NULL,
+  `upass` varchar(100) NOT NULL,
+  `uname` varchar(10) NOT NULL,
+  `uauth` varchar(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- 傾印資料表的資料 `user`
+--
+
+INSERT INTO `user` (`uid`, `upass`, `uname`, `uauth`) VALUES
+('admin', '1234', '管理者', '9');
 
 --
 -- 已傾印資料表的索引
@@ -55,6 +76,12 @@ ALTER TABLE `article`
   ADD PRIMARY KEY (`artid`);
 
 --
+-- 資料表索引 `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`uid`);
+
+--
 -- 在傾印的資料表使用自動遞增(AUTO_INCREMENT)
 --
 
@@ -62,7 +89,7 @@ ALTER TABLE `article`
 -- 使用資料表自動遞增(AUTO_INCREMENT) `article`
 --
 ALTER TABLE `article`
-  MODIFY `artid` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `artid` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

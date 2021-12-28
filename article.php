@@ -1,5 +1,7 @@
 <?php 
 
+
+session_start();
 include_once("_con.php");
 
 //查詢擁有此ID的文章
@@ -31,7 +33,7 @@ $click_query = mysqli_query($_con,$click_sql);
     <div>
         <?php echo $row['artcontent']; ?>
     </div>
-    <li>點擊數：<?php echo $row['artclick']; ?></li>
+    <li>點擊數：<?php echo $row['artclick']+1; ?></li>
     <a href="index.php">回列表</a>
 </body>
 </html>
